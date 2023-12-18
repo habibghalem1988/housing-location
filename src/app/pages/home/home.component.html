@@ -1,0 +1,13 @@
+<section>
+  <form action="">
+    <input type="text" placeholder="filter by city" #filter>
+    <button class="primary" type="button" (click)="applyFilter(filter.value)"> search </button>
+  </form>
+</section>
+<section class="results">
+  @for (housingLocation of filteredHousingLocationList; track housingLocation.id) {
+    <app-housing-location [housingLocation]="housingLocation"></app-housing-location>
+  }@empty {
+    <span>Empty list</span>
+  }
+</section>
